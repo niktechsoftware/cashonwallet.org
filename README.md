@@ -1,2 +1,2 @@
 # cashonwallet.org
-cashonwallet.orh
+cashonwallet.org
