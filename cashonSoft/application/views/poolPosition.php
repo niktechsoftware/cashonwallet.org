@@ -1,86 +1,87 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Pool Income</title>
-	 <meta name="viewport" content="width=device-width, initial-scale=1">
-    <section class="section-b-space">
-      <div class="container">
-        <div class="row">
-          <?php $this->load->view("dashboardmenu");?>
-          <?php $loginType = $this->session->userdata("login_type");
 
+<head>
+  <title>Pool Income</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <section class="section-b-space">
+    <div class="container">
+      <div class="row">
+        <?php $this->load->view("dashboardmenu");?>
+        <?php $loginType = $this->session->userdata("login_type");
           $this->db->where("id",$this->session->userdata("customer_id"));
           $data= $this->db->get("customer_info")->row();
           ?>
-          <div class="col-lg-9">
-            <div class="dashboard-right">
-              <div class="dashboard">
+        <div class="col-lg-9">
+          <div class="dashboard-right">
+            <div class="dashboard">
 
+              <!-- History of pool income -->
 
-
-                    <!-- History of pool income -->
-
-                    <div class="card">
-                    <div class="card-content">
-                     <h4 class="leftdownline">Pool Income of <?php echo $data->username;?></h4>
-                        <table id="example1" class="table table-bordered table-hover table-responsive text-nowrap">
-                      <thead>
-                          <tr class="bg-danger text-white">
-                            <th>Sr. No.</th>
-
-                            <th>level</th>
-                            <th>Team</th>
-                            <th>Income</th>
-
-                            <th>Status</th>
-                           
-                          </tr>
-                          </thead>
-                            <?php 
-                            $tot =0;
-                            $this->db->where("status",1);
-$totcus = $this->db->get("customer_info");
-$tot = $totcus->num_rows();
-                            
-                            $sno =1 ;  foreach($getstr->result() as $r): ?>
-                            <tbody>
-                          <tr>
-                            <td><?php echo $sno;?></td>
-                            <?php
-                            
+              <div class="card">
+                <div class="card-content">
+                  <h4 class="leftdownline">Pool Income of <?php echo $data->username;?></h4>
+                  <table id="example1" class="table table-bordered table-hover table-responsive text-nowrap">
+                    <thead>
+                      <tr class="bg-danger text-white">
+                        <th>Sr. No.</th>
+                        <th>level</th>
+                        <th>Team</th>
+                        <th>Income</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <?php $tot =0; $this->db->where("status",1);
+                  $totcus = $this->db->get("customer_info");
+                  $tot = $totcus->num_rows();
+                  $sno =1 ;  foreach($getstr->result() as $r): ?>
+                    <tbody>
+                      <tr>
+                        <td><?php echo $sno;?></td>
+                        <?php
                               $r->level;
                               $count=0;
                               $count1=0;
-
                               ?>
-                            <td><?php echo $r->level;?> </td>
-                             <td><?php echo $r->team;?></td>
-                            <td><?php  echo $r->income;?></td>
+                        <td><?php echo $r->level;?> </td>
+                        <td><?php echo $r->team;?></td>
+                        <td><?php  echo $r->income;?></td>
 
-                            <td><?php
+                        <td>
+                          <?php
                            if($r->status ==1){
-                              echo "Fill"; 
-                              $tot= $tot - $r->team;} else{ if($tot>0){echo $r->team-$tot;     $tot= $tot - $r->team;   }else{ echo $r->team;}  }?></td>
+                              echo "<p style='color:white;background-color:#df3b3b; padding-top:12px; padding-bottom:12px;'>&nbsp&nbsp&nbsp&nbspFill ";
+                              $tot= $tot - $r->team;}
+                              else{
+                                if($tot>0){
+                                  // echo $r->team-$tot;
+                                  echo "<p style='color:white;background-color:green; padding-top:12px; padding-bottom:12px;'>&nbsp&nbsp&nbsp&nbspNot Fill ";
+                                  $tot= $tot - $r->team;  }
+                                  else{
+                                    // echo $r->team;
+                                    echo "<p style='color:white;background-color:green;padding-top:12px; padding-bottom:12px;'>&nbsp&nbsp&nbsp&nbspNot Fill ";
 
-                            
-                          </tr>
-                          </tbody>
-                          <?php $sno++; endforeach ;?>
-                       
-                        </table>
-                      </div>
+                                  }
+                                    }?>
+                        </td>
+                      </tr>
+                    </tbody>
+                    <?php $sno++; endforeach ;?>
+
+                  </table>
+                </di>
 
 
 
-                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-    </section>
+  </section>
 
-	<!--  <style type="text/css">
+  <!--  <style type="text/css">
 			@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
 body {
@@ -248,7 +249,8 @@ body {
 </head>
 <body>
 	<div id="price">
- --><!--price tab
+ -->
+  <!--price tab
   <div class="plan standard">
     <div class="plan-inner">
       <div class="entry-title">
@@ -338,5 +340,6 @@ body {
   </div> -->
   <!-- end of price tab-->
 
-</body>
+  </body>
+
 </html>

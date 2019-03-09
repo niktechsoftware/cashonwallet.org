@@ -36,8 +36,8 @@
                             <th>Date</th>
                           </tr>
                           </thead>
-                            <?php $sno =1 ; $tot=0; foreach($getstr->result() as $r): ?>
                             <tbody>
+                            <?php $sno =1 ; $tot=0; foreach($getstr->result() as $r): ?>
                           <tr>
                             <td><?php echo $sno;?></td>
                             <?php
@@ -60,8 +60,8 @@
 
                             <td><?php echo date('d-m-Y',strtotime($r->date_time));?></td>
                           </tr>
-                          </tbody>
                           <?php $sno++; endforeach ;?>
+                          </tbody>
                           <tr class="table-primary">
                           	<td></td>
                           	<td> <h6>Total </h6></td>

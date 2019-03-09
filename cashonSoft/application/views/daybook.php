@@ -32,8 +32,9 @@
 
                           </tr>
                           </thead>
+                          <tbody>
                             <?php $sno =1 ; foreach($getstr->result() as $r): ?>
-                            <tbody>
+
                             <tr>
                               <td><?php echo $sno;?></td>
                               <td><?php
@@ -47,7 +48,8 @@
                             <!--   <td><?php //echo $this->tree->getleftjoiner($cid); ?></td>
                               <td><?php //echo    $this->tree->getrightjoiner($cid);?></td> -->
 
-                              <td><?php
+                              <td>
+                              <?php
                               $this->db->where("plan_id",$r->plan_number);
                               $remark=$this->db->get("plan_details")->row();
                               echo $remark->plan_name?></td>
@@ -58,8 +60,8 @@
                              <!--  <td><?php //echo $csumer->active_date;?></td>   -->
 
                             </tr>
-                            </tbody>
                           <?php $sno++; endforeach ;?>
+                          </tbody>
                         </table>
                       </div>
                     </div>

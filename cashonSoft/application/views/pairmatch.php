@@ -53,23 +53,23 @@
                                $count1=0;
 
                                $pair=0;
-        
+
                             ?>
                               <td><?php echo $csumer->customer_name;?></td>
                              <?php if($r->amount > 0){ $pair = $r->amount/100; } else{ $pair=0;}?>
-                            
+
                                <td><?php  echo $pair;?></td>
                                 <?php if($r->remark =="Pair Mach Income"){?>
-                               
-                              <td><?php $tot = $tot+$r->amount; echo $r->amount;?></td> 
+
+                              <td><?php $tot = $tot+$r->amount; echo $r->amount;?></td>
                               <?php } else{?>
-                                   <td><?php echo "0";?></td> 
+                                   <td><?php echo "0";?></td>
                              <?php }?>
-                               
-                               
-                               
-                               
-                               <td><?php 
+
+
+
+
+                               <td><?php
 
                               $this->db->where("plan_id",2);
                               $remark=$this->db->get("plan_details")->row();
@@ -78,16 +78,16 @@
                               ?></td>
 
                                <?php if($r->remark =="Pair Capping Amount"){?>
-                               
-                              <td><?php echo $r->amount;?></td> 
+
+                              <td><?php echo $r->amount;?></td>
                               <?php } else{?>
-                                   <td><?php echo "0";?></td> 
+                                   <td><?php echo "0";?></td>
                              <?php }?>
-                              <td><?php echo date('d-m-Y',strtotime($r->date_time));?></td>    
+                              <td><?php echo date('d-m-Y',strtotime($r->date_time));?></td>
 
                             </tr>
-                            </tbody>
                           <?php $sno++; endforeach ;?>
+                            </tbody>
                           <tr class="table-primary">
                         	<td></td>
                         	<td><h6>Total Income</h6></td>

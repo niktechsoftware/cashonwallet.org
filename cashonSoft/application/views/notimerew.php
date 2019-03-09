@@ -32,15 +32,15 @@
                         <!--<th>Left</th>
                           <th>Right</th> -->
                           <th>Pair</th>
-                       
+
                           <th>Reward Income</th>
                            <th>Achieved Date </th>
                           <!-- <th>Active Date</th> -->
 
                           </tr>
                           </thead>
-                          <?php $sno =1;  $tot =0; foreach($getstr->result() as $r): ?>
                           <tbody>
+                          <?php $sno =1;  $tot =0; foreach($getstr->result() as $r): ?>
                           <tr>
                           <td><?php echo $sno;?></td>
                             <?php
@@ -52,33 +52,33 @@
                               $pair =0;
 
                               $count1=0;
-                             
+
                               $this->db->where("reward",$r->amount);
               $cpair =  $this->db->get("no_time_master")->row();
-                              
-                              
+
+
                               ?>
                         <td><?php echo $csumer->username;?></td>
 
                               <td><?php echo $csumer->customer_name;?></td>
                               <td><?php echo $cpair->reward_name;?></td>
-                         
+
                            <?php if($r->amount > 0){ $pair = $r->amount/30;}else{$pair =0;}
                          ?>
                              <td>
-                             
-                             
-                             
+
+
+
                           <?php   echo $cpair->pair;?></td>
-                     
+
 
 
                             <td><?php  $tot = $tot+$r->amount; echo $r->amount;?></td>
                             <td><?php echo date('d-m-Y',strtotime($r->date_time));?></td>
 
                           </tr>
-                          </tbody>
                         <?php $sno++; endforeach ;?>
+                          </tbody>
                         <tr class="table-primary">
                         	<td></td>
                         	<td></td>
