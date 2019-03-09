@@ -16,4 +16,8 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/styles/main_styles.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>assets/styles/responsive.css">
 
+
+<script src="<?php echo base_url(); ?>assets/js/jquery-1.11.1.min.js"></script>
+
+
 </head>

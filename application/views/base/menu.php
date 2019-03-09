@@ -1,5 +1,42 @@
 <body>
 
+<div id="exampleModalLive1" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLiveLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h4 class="modal-title" id="exampleModalLiveLabel1" style="color:#df3b3b; data-blast="color">Offer</h4>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+<img style="
+   
+    height:450px; 
+	width:100%;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    border:1px solid #0e8ce4;
+    margin:auto;
+    " src="<?php echo base_url(); ?>assets/images/offers/holi.jpeg" alt="">
+
+         </div>
+         <div class="modal-footer">
+           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+         </div>
+       </div>
+     </div>
+   </div>
+   <script>
+$(window).load(function(){
+       $('#exampleModalLive1').modal('show');
+        });
+</script>
+
+
+
+
+
 <div class="super_container">
 
 	<!-- Header(manu) -->

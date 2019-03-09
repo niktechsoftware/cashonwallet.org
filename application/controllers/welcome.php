@@ -19,6 +19,7 @@ parent::__construct();
     $data['products'] = $this->Shopping_cart_model->get_all();
     $data['title'] = 'Cash on Wallet';
     $this->load->view("cashonHome", $data);
+    
     }
 
     public function shop()
