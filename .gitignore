@@ -7,3 +7,13 @@ application/cache/*
 application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
+application/config/database.php
+application/config/config.php
+admin/application/config/config.php
+admin/application/config/database.php
+cashonSoft/application/config/database.php
+cashonSoft/application/config/config.php
+cashonSoft/application/views/includes/menuLeft.php
+cashonSoft/application/views/includes/menuAdmin.php
+
+

@@ -14,24 +14,24 @@
                 </li>
 
                 <!-- <li class="mega"><a href="<?php echo base_url(); ?>index.php/welcome">Home</a>   </li> -->
-                <!-- <li class="mega"><a href="http://localhost/cashonwallet.org/">Home</a>   </li> -->
+                <li class="mega"><a href="http://localhost/cashonwallet.org/">Home</a>   </li>
 
-                <li class="mega"><a href="http://cashonwallet.org/">Home</a>   </li>
+                <!-- <li class="mega"><a href="http://cashonwallet.org/">Home</a>   </li> -->
 
 
                   <!-- <li ><a href="<?php echo base_url(); ?>index.php/welcome/plans_and_detail">Plans & Details</a></li> -->
-                  <!-- <li ><a href="http://localhost/cashonwallet.org/index.php/welcome/blog">Plans & Details</a></li> -->
+                  <li ><a href="http://localhost/cashonwallet.org/index.php/welcome/blog">Plans & Details</a></li>
 
-                  <li ><a href="http://cashonwallet.org/index.php/welcome/blog">Plans & Details</a></li>
+                  <!-- <li ><a href="http://cashonwallet.org/index.php/welcome/blog">Plans & Details</a></li> -->
 
                  <!-- <li class="mega"><a href="<?php echo base_url(); ?>index.php/welcome/product_show">products</a> </li> -->
-                 <!-- <li class="mega"><a href="http://localhost/cashonwallet.org/">products</a> </li> -->
+                 <li class="mega"><a href="http://localhost/cashonwallet.org/">products</a> </li>
 
                  <!-- <li class="mega"><a href="http://cashonwallet.org/">products</a> </li> -->
 
                   <!-- <li><a href="<?php echo base_url(); ?>index.php/welcome/about">About Us</a></li> -->
-                  <!-- <li><a href="http://localhost/cashonwallet.org/index.php/welcome/contact">Contact Us</a></li> -->
-                  <li><a href="http://cashonwallet.org/index.php/welcome/contact">Contact Us</a></li>
+                  <li><a href="http://localhost/cashonwallet.org/index.php/welcome/contact">Contact Us</a></li>
+                  <!-- <li><a href="http://cashonwallet.org/index.php/welcome/contact">Contact Us</a></li> -->
 
                 <!-- <li class="mega"><a href="<?php echo base_url(); ?>index.php/welcome/contact">Contact Us</a></li> -->
 
