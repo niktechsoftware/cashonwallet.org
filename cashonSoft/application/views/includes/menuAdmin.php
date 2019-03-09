@@ -12,29 +12,29 @@
                     <div class="mobile-back text-right"> Back<i class="fa fa-angle-right pl-2" aria-hidden="true"></i>
                     </div>
                 </li>
-               
+
                 <!-- <li class="mega"><a href="<?php echo base_url(); ?>index.php/welcome">Home</a>   </li> -->
-                <li class="mega"><a href="http://localhost/cashonwallet.org/">Home</a>   </li>
-  
-                <!-- <li class="mega"><a href="http://cashonwallet.org/">Home</a>   </li> -->
+                <!-- <li class="mega"><a href="http://localhost/cashonwallet.org/">Home</a>   </li> -->
 
-                 
+                <li class="mega"><a href="http://cashonwallet.org/">Home</a>   </li>
+
+
                   <!-- <li ><a href="<?php echo base_url(); ?>index.php/welcome/plans_and_detail">Plans & Details</a></li> -->
-                  <li ><a href="http://localhost/cashonwallet.org/index.php/welcome/blog">Plans & Details</a></li>
+                  <!-- <li ><a href="http://localhost/cashonwallet.org/index.php/welcome/blog">Plans & Details</a></li> -->
 
-                  <!-- <li ><a href="http://cashonwallet.org/index.php/welcome/blog">Plans & Details</a></li> -->
+                  <li ><a href="http://cashonwallet.org/index.php/welcome/blog">Plans & Details</a></li>
 
                  <!-- <li class="mega"><a href="<?php echo base_url(); ?>index.php/welcome/product_show">products</a> </li> -->
-                 <li class="mega"><a href="http://localhost/cashonwallet.org/">products</a> </li>
-                
+                 <!-- <li class="mega"><a href="http://localhost/cashonwallet.org/">products</a> </li> -->
+
                  <!-- <li class="mega"><a href="http://cashonwallet.org/">products</a> </li> -->
-               
+
                   <!-- <li><a href="<?php echo base_url(); ?>index.php/welcome/about">About Us</a></li> -->
-                  <li><a href="http://localhost/cashonwallet.org/index.php/welcome/contact">Contact Us</a></li>
-                  <!-- <li><a href="http://cashonwallet.org/index.php/welcome/contact">Contact Us</a></li> -->
+                  <!-- <li><a href="http://localhost/cashonwallet.org/index.php/welcome/contact">Contact Us</a></li> -->
+                  <li><a href="http://cashonwallet.org/index.php/welcome/contact">Contact Us</a></li>
 
                 <!-- <li class="mega"><a href="<?php echo base_url(); ?>index.php/welcome/contact">Contact Us</a></li> -->
-				
+
                 <?php if(!$this->session->userdata("customer_id")):?>
                  <li class="mega"><a href="<?php echo base_url(); ?>index.php/welcome/login">Login/Register</a></li>
                     <!--<li class="mega"><a href="<?php// echo base_url(); ?>admin">Admin Login</a></li>-->
@@ -93,13 +93,13 @@
                                                 </div>
                                             </li>
                                         </ul>-->
-             
 
-                                   
-                
 
-                                              
-                                     
+
+
+
+
+
 
                                        <!--  <ul >
                                             <li><a href="<?php echo base_url();?>index.php/welcome/daily"><strong>1.</strong>Daily Base Income</a></li>
@@ -108,11 +108,11 @@
                                             <li><a href="<?php echo base_url();?>index.php/welcome/notime"><strong>4.</strong>No Time Reward</a></li>
                                             <li><a href="<?php echo base_url();?>index.php/welcome/BusinessPlan"><strong>5.</strong>Business Plan</a></li>
                                            <!--  <li><a href="<?php echo base_url();?>index.php/welcome/ROULTY"><strong>6.</strong>Roulty Income</a></li>
- 
+
                                         </ul>-->
 
 
-              
+
                     <!-- <ul>
                                             <li><a href="about-page.html">about us</a></li>
                                             <li><a href="404.html">404</a></li>
@@ -130,7 +130,7 @@
                                             <li><a href="order-success.html">order success</a></li>
                                                 <li><a href="dashboard.html">Dashboard</a></li>
                                             <li><a href="faq.html">FAQ</a></li>
-                                       
+
 
                 </li>
                 <li class="mega"><a href="<?php echo base_url(); ?>index.php/welcome/contact">Contact Us</a>
@@ -230,7 +230,7 @@
                                                 </div>
                                             </li>
                                         </ul>-->
-          
+
         <!-- <div class="icon-nav">
             <ul>
                 <li class="onhover-div mobile-search">
@@ -322,5 +322,5 @@
                 <!-- </li>
             </ul>
         </div> -->
-   
+
 <!-- header end -->

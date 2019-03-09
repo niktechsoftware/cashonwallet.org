@@ -142,12 +142,12 @@
    </li>
 </ul>
 </nav>
-</div> 
+</div>
 </div>--->
 <div class="brand-logo" style="margin-top:-5px;">
 <!-- <a href="<?php echo base_url();?>index.php/welcome/"> <img src="<?php echo base_url(); ?>assets/images/icon/logo.png" class="img-fluid" alt=""></a> -->
-<!-- <a href="http://cashonwallet.org/"> <img src="<?php echo base_url(); ?>assets/images/icon/logo.png" class="img-fluid" alt=""></a> -->
-<a href="http://localhost/cashonwallet.org/"> <img src="<?php echo base_url(); ?>assets/images/icon/logo.png" class="img-fluid" alt=""></a>
+<a href="http://cashonwallet.org/"> <img src="<?php echo base_url(); ?>assets/images/icon/logo.png" class="img-fluid" alt=""></a>
+<!-- <a href="http://localhost/cashonwallet.org/"> <img src="<?php echo base_url(); ?>assets/images/icon/logo.png" class="img-fluid" alt=""></a> -->
 
 </div>
 </div>
