@@ -43,15 +43,15 @@
 						<div class="ml-auto"><div class="advert_image"><img src="<?php echo base_url(); ?>assets/images/adv_3.png" alt=""></div></div>
 					</div>
 				</div> -->
-				
+
 
 			<?php if(isset($products) && is_array($products) && count($products))
-			{ 
+			{
 				$i=1;
-				foreach ($products as $key => $data) 
+				foreach ($products as $key => $data)
 				{?>
 
-				
+
 				<div class="col-lg-4 advert_col" style="margin-top:40px;">
 
 					<!-- Advert Item -->
@@ -62,9 +62,9 @@
 							<div class="advert_title_2"><a href="#">Rs. <?php echo $data['product_price'] ?></a></div><br/>
 							<!-- <div class="advert_text"><?php echo $data['product_description'] ?></div> -->
 							<a href="<?php echo base_url();?>index.php/welcome/checkcart" class="btn btn-danger">Buy</a>
-							
+
 						</div>
-						<div class="ml-auto"><div class="advert_image"><img src="<?php echo base_url(); ?>admin\assets\images/<?php echo $data['product_image'] ?>" alt=""></div></div>
+						<div class="ml-auto"><div class="advert_image"><img src="<?php echo base_url(); ?>admin/assets/images/<?php echo $data['product_image'] ?>" alt=""></div></div>
 					</div>
 				</div>
 				<?php $i++;}}?>
