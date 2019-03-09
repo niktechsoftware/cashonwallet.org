@@ -1,5 +1,5 @@
 <?php
-class UserDetail extends CI_Model
+class Userdetail extends CI_Model
 {
     public function userReg($data)
     {
@@ -8,27 +8,27 @@ class UserDetail extends CI_Model
 
         return true;
     }
-    
-   
+
+
     public function update_customer_table($data)
     {
        $id = $this->session->userdata("customer_id");
-     
+
         $this->db->where('id',$id);
         $this->db->update('customer_info',$data);
         return true;
-        
+
     }
      public function update_account_table($data)
     {
        $id = $this->session->userdata("customer_id");
-     
+
         $this->db->where('id',$id);
         $this->db->update('customer_info',$data);
         return true;
-        
+
     }
-    
+
     public function update_amount_status($id)
     {
         $data=array
@@ -39,9 +39,9 @@ class UserDetail extends CI_Model
         );
         $this->db->where('id',$id);
         $this->db->update('customer_info',$data);
-        
+
         return true;
-        
+
     }
 
     public function smssetting()
@@ -60,7 +60,7 @@ class UserDetail extends CI_Model
        $this->db->where("customer_name",$name);
        $this->db->where("mobilenumber",$mobilenumber);
        $this->db->where("email",$email);
-      
+
         $get_id = $this->db->get("customer_info")->row()->id;
         $get_id1 = 100+$get_id;
         $update = array(
