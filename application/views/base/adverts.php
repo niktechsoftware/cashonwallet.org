@@ -64,7 +64,7 @@
 							<a href="<?php echo base_url();?>index.php/welcome/checkcart" class="btn btn-danger">Buy</a>
 							
 						</div>
-						<div class="ml-auto"><div class="advert_image"><img src="<?php echo base_url(); ?>admin\assets\images/<?php echo $data['product_image'] ?>" alt=""></div></div>
+						<div class="ml-auto"><div class="advert_image"><img src="<?php echo base_url(); ?>admin/assets/images/<?php echo $data['product_image'] ?>" alt=""></div></div>
 					</div>
 				</div>
 				<?php $i++;}}?>

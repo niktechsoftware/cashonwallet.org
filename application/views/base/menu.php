@@ -57,9 +57,9 @@ $(window).load(function(){
 							</div>
 							<div class="top_bar_user">
 								<div class="user_icon"><img src="<?php echo base_url(); ?>assets/images/user.svg" alt=""></div>
-								<div><a href="<?php echo base_url();?>cashonsoft/index.php/welcome/registration">Register</a></div>
+								<div><a href="<?php echo base_url();?>cashonSoft/index.php/welcome/registration">Register</a></div>
 								<div class="user_icon"><img src="<?php echo base_url(); ?>assets/images/user.svg" alt=""></div>
-								<div><a href="<?php echo base_url();?>cashonsoft/index.php/welcome/login">Sign in</a></div>
+								<div><a href="<?php echo base_url();?>cashonSoft/index.php/welcome/login">Sign in</a></div>
 							</div>
 						</div>
 					</div>
@@ -217,7 +217,7 @@ $(window).load(function(){
 									<li><a href="<?php echo base_url();?>">Home<i class="fas fa-chevron-down"></i></a></li>
 									<li><a href="<?php echo base_url(); ?>index.php/welcome/blog">Plan & Details<i class="fas fa-chevron-down"></i></a></li>
 									<li><a href="<?php echo base_url(); ?>index.php/welcome/contact">Contact Us<i class="fas fa-chevron-down"></i></a></li>
-									<li><a href="<?php echo base_url();?>cashonsoft/index.php/welcome/login">Login/Registration<i class="fa fa-angle-down"></i></a></li>
+									<li><a href="<?php echo base_url();?>cashonSoft/index.php/welcome/login">Login/Registration<i class="fa fa-angle-down"></i></a></li>
 									<!-- <li class="hassubs">
 										<a href="#">Super Deals<i class="fas fa-chevron-down"></i></a>
 										<ul>
