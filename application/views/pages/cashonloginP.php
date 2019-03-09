@@ -18,7 +18,7 @@
     
     <h3>Enter Details</h3>
     <div class="form-group">
-    	<input type="text" placeholder="Enter Your Cashonc ID" class="form-control" id="username" name="username" required="required" 
+    	<input type="text" placeholder="Enter Email/Cashon ID" class="form-control" id="username" name="username" required="required" 
         style="    
     width: 100%;
     height: 50px;

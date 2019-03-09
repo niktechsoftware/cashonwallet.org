@@ -103,15 +103,28 @@
 				</div>
 			</div>
 		</div>
-<div class="container-fluid">
+		<div class="container">
+    <div style="
+    height:30px;
+    padding: 5px;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    text-align:center;
+    border:1px solid #df3b3b;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:#0e8ce4;
+	margin-bottom:5px;
+    ";>
 	<marquee  behavior="alternate" onmouseover="this.stop();" onmouseout="this.start();">
          <?php $res = $this->db->get("marquee")->result();?>
          <?php foreach($res as $row):?>
-		 <h4 style="color:#df3b3b">
+		 <h4 style="color:white;">
              <?php echo $row->notice; ?>
 			 </h4>
          <?php endforeach;?>
      </marquee>
+	 </div>
 	 </div>
 
 		<!-- Main Navigation -->

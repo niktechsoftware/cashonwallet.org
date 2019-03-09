@@ -87,6 +87,8 @@ parent::__construct();
 
 public function checkcart(){
     
+
+    
     if($this->session->userdata('customer_username')){
 			redirect('welcome/opencart', 'refresh');
         }else{
@@ -111,13 +113,19 @@ public function checkcart(){
     $data['title'] = 'Registration';
     $this->load->view("registration", $data);
 
-
     }
 
     public function cashonlogin(){
 
     $data['title'] = 'Login With Cashonc ID';
     $this->load->view("cashonlogin", $data);
+
+    }
+
+        public function shoponlogin(){
+
+    $data['title'] = 'Login With shop ID';
+    $this->load->view("shoponlogin", $data);
 
     }
 
@@ -140,8 +148,39 @@ public function checkcart(){
         
             echo "<script>alert('Error , Your username or password incorrect !');</script>";
             redirect('/welcome/cashonlogin', 'refresh');
-           
+
         }
     }
 
+    public function userDetail()
+    {
+        $data=array(
+
+        'customer_name'=>$this->input->post('customername'),
+		'password'=>$this->input->post('password'),
+		'email'=>$this->input->post('email'),
+        'mobilenumber'=>$this->input->post('mobilenumber'),
+        'password'=>$this->input->post('password'),
+        'current_address'=>$this->input->post('pin')
+       );
+
+       if($this->UserDetail->userReg($data)){
+
+        // $id = $this->db->query("SELECT * FROM customer_info ORDER BY id DESC LIMIT 1")->row()->id;
+		// $this->UserDetail->userReg($id);
+         echo "<script>alert('Dear SIR, Your Registration is successful');</script>";
+         redirect('welcome/opencart', 'refresh');
+		 
+	   }else{
+		echo "Data not found";
+	   }
+            
+            // $this->db->select_max('id');
+            // $this->db->from('customer_info');
+            // $maxid=$this->db->get()->row()->id;
+            // $maxid=$maxid+1;
+            // $username = $maxid+100;
+            // echo $username;
+    }
+  
 }
