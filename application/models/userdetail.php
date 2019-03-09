@@ -1,5 +1,5 @@
 <?php
-class UserDetail extends CI_Model
+class Userdetail extends CI_Model
 {
     public function userReg($data)
     {
