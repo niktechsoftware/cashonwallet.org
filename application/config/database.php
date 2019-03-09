@@ -47,21 +47,19 @@
 
 $active_group = 'default';
 $active_record = TRUE;
- $db['default']['hostname'] = 'localhost';
 
-$db['default']['username'] = 'cashowdd_wallet';
-$db['default']['password'] = 'Rahul!123singh';
-$db['default']['database'] = 'cashowdd_wallet';  
+$db['default']['hostname'] = 'localhost';
 
-
-
-date_default_timezone_set('Asia/Kolkata');
+$db['default']['username'] = 'root';
+$db['default']['password'] = '';
+$db['default']['database'] = 'cashon_wallet';
 
 
-$db['default']['dbdriver'] = 'mysqli';
+
+$db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
-$db['default']['db_debug'] = TRUE; 
+$db['default']['db_debug'] = TRUE;
 $db['default']['cache_on'] = FALSE;
 $db['default']['cachedir'] = '';
 $db['default']['char_set'] = 'utf8';
@@ -72,5 +70,4 @@ $db['default']['stricton'] = FALSE;
 
 
 /* End of file database.php */
-/* Location: ./application/config/database.php */     
-
+/* Location: ./application/config/database.php */

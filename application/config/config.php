@@ -22,11 +22,8 @@
 | a PHP script and you can easily do that on your own.
 |
 */
-
-
-
-$config['base_url'] = 'http://cashonwallet.org/';
-
+$config['base_url'] = 'http://localhost/cashonwallet.org/';
+// $config['base_url'] = 'http://cashonwallet.org/';
 
 
 /*
@@ -70,7 +67,7 @@ $config['uri_protocol']	= 'AUTO';
 | http://codeigniter.com/user_guide/general/urls.html
 */
 
-$config['url_suffix'] = '.cash';
+$config['url_suffix'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -173,10 +170,6 @@ $config['controller_trigger']	= 'c';
 $config['function_trigger']		= 'm';
 $config['directory_trigger']	= 'd'; // experimental not currently in use
 
-
-
-$config['log_file_extension'] = 'log';
-$config['log_file_permissions'] = 0644;
 /*
 |--------------------------------------------------------------------------
 | Error Logging Threshold
@@ -261,17 +254,15 @@ $config['encryption_key'] = 'c146d6506b39e991da8572922b7f22e2';
 | 'sess_time_to_update'		= how many seconds between CI refreshing Session Information
 |
 */
-$config['sess_driver'] = 'database';
 $config['sess_cookie_name']		= 'ci_session';
 $config['sess_expiration']		= 7200;
 $config['sess_expire_on_close']	= FALSE;
 $config['sess_encrypt_cookie']	= FALSE;
-$config['sess_use_database']	= TRUE;
+$config['sess_use_database']	= FALSE;
 $config['sess_table_name']		= 'ci_sessions';
 $config['sess_match_ip']		= FALSE;
 $config['sess_match_useragent']	= TRUE;
 $config['sess_time_to_update']	= 300;
-$config['sess_regenerate_destroy'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------
@@ -288,7 +279,6 @@ $config['cookie_prefix']	= "";
 $config['cookie_domain']	= "";
 $config['cookie_path']		= "/";
 $config['cookie_secure']	= FALSE;
-$config['cookie_httponly'] 	= FALSE;
 
 /*
 |--------------------------------------------------------------------------
@@ -317,8 +307,6 @@ $config['csrf_protection'] = FALSE;
 $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
-$config['csrf_regenerate'] = TRUE;
-$config['csrf_exclude_uris'] = array();
 
 /*
 |--------------------------------------------------------------------------
