@@ -13,7 +13,7 @@
                                         <div class="modal-body">
                                         <center>
                                             <form class="theme-form"
-                                                action="<?php echo base_url();?>index.php/apanel/entertheamount/"
+                                                action="<?php echo base_url();?>index.php/ajax/entertheamount/"
                                                 method="post">
                                               <label for="mobilenumber">Please Enter the Amount :<span title="Required"
                                                         style="color:red;">*</span>&nbsp;&nbsp;<span id="mpinno"

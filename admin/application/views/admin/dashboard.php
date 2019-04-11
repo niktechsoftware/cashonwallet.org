@@ -1,3 +1,5 @@
+			             
+			               <?php if($this->session->userdata("status")==1){?>
 			                <div id="main-wrapper" class="container">
 			                    <div class="row">
 			                        <div class="col-lg-3 col-md-6">
@@ -403,3 +405,16 @@
 			                   
 			                    </div>
 			                </div><!-- Main Wrapper -->
+			                <?php }?>
+			                 <div id="main-wrapper" class="container">
+			                    <div class="row">
+			                        <div class="col-lg-3 col-md-6">
+			                            <div class="panel info-box panel-white">
+			                                <div class="panel-body">
+			                                    
+			                <h2>Under Construction </h2>
+			                </div>
+			                </div>
+			                </div>
+			                </div>
+			                </div>

@@ -16,7 +16,7 @@
                           
                                 
                             </ul>
-
+                        <?php if($this->session->userdata("status")==1){?>
                         </li>
 
                         <li><a href="<?php echo base_url();?>apanel/daybook"><span class="menu-icon icon-credit-card"></span></span><p>&nbsp;&nbsp;&nbsp;Daybook</p><span class="arrow"></span></a></li>
@@ -65,16 +65,19 @@
                                 <p>&nbsp;&nbsp;&nbsp;Recharge Wallet</p>
                                 <span class="arrow"></span>
                             </a>
+                           <?php }?>
                               <ul class="sub-menu form">
                              
                                 <li><a href="#" id="walletrecharge" data-toggle="modal" data-target="#myModal2">Wallet MPin Reacharge</a></li> 
                             </ul>
+                             <?php if($this->session->userdata("status")==1){?>
                              <li class="droplink">
                         	<a href="#">
                         		<span class="fa fa-briefcase"></span>
                         		<p>&nbsp;&nbsp;&nbsp;Withdrawl Section</p>
                         		<span class="arrow"></span>
                         	</a>
+                        	
                               <ul class="sub-menu">
                                <li><a href="<?php echo base_url();?>apanel/withdrawl">New Request</a></li>
                                 <li><a href="<?php echo base_url();?>apanel/withdrawlApprove">Approved</a></li>
@@ -82,9 +85,11 @@
                                  
                             </ul>                        
                         </li>
+                        <?php }?>
+                          <?php if($this->session->userdata("status")==1){?>
                               <!--   <li><a href="<?php echo base_url();?>apanel/withdrawl"><span class="menu-icon icon-credit-card"></span></span><p>&nbsp;&nbsp;&nbsp;Withdrawl Request</p><span class="arrow"></span></a></li>-->
                           <li><a href="<?php echo base_url();?>mpindetailcontroller/"><span class="menu-icon icon-credit-card"></span></span><p>&nbsp;&nbsp;&nbsp;MPIN Details</p><span class="arrow"></span></a></li>
-                          
+                          <?php }?>
                         </li>
                     </ul>
                 </div><!-- Page Sidebar Inner -->
@@ -116,7 +121,8 @@
                                               <label for="mobilenumber">Please Enter the Customer User Name:<span title="Required"
                                                         style="color:red;">*</span>&nbsp;&nbsp;<span id="mpinno"
                                                         Style="color:red;"></span></label><br/>
-                                               <input type="text" name="customeruserid" class="form-control" maxlength="10" placeholder="Enter the customer User Name Ex: cashonc...." required=""/></span>
+                                               <input type="text" id="customerid" name="customeruserid" class="form-control" maxlength="10" placeholder="Enter the customer User Name Ex: cashonc...." required=""/></span>
+                                                <div id ="employeename" ></div>
                                                 <br/>                   
                                                 <br>
                                                 <input type="hidden"  class="form-control" id="cid"
@@ -129,6 +135,18 @@
                                                 data-dismiss="modal">Close</button>
                                         </div>
                                     </div>
-                                    
+                                      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
+                                    <script>
+                                        $("#customerid").keyup(function(){
+                        						var customerid = $("#customerid").val();
+                        				
+                        					
+                        						$.post("<?php echo site_url('apanel/getEmployee') ?>",{customerid : customerid},function(data){
+                        							$("#employeename").html(data);
+                        						});
+                        					});
+                                        
+                                    </script>
                                 </div>
                             </div>

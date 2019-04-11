@@ -1,9 +1,9 @@
 <?php
-class UserDetail extends CI_Model
+class userdetail extends CI_Model
 {
     public function userReg($data)
     {
-        $this->db->insert("customer_info", $data);
+        $this->db->insert("customer_product", $data);
        // $this->db->insert("tree");
 
         return true;
@@ -15,7 +15,7 @@ class UserDetail extends CI_Model
        $id = $this->session->userdata("customer_id");
      
         $this->db->where('id',$id);
-        $this->db->update('customer_info',$data);
+        $this->db->update('customer_product',$data);
         return true;
         
     }
@@ -24,7 +24,7 @@ class UserDetail extends CI_Model
        $id = $this->session->userdata("customer_id");
      
         $this->db->where('id',$id);
-        $this->db->update('customer_info',$data);
+        $this->db->update('customer_product',$data);
         return true;
         
     }
@@ -38,7 +38,7 @@ class UserDetail extends CI_Model
             'active_date'=>date('Y-m-d H:i:s')
         );
         $this->db->where('id',$id);
-        $this->db->update('customer_info',$data);
+        $this->db->update('customer_product',$data);
         
         return true;
         
@@ -61,13 +61,13 @@ class UserDetail extends CI_Model
        $this->db->where("mobilenumber",$mobilenumber);
        $this->db->where("email",$email);
       
-        $get_id = $this->db->get("customer_info")->row()->id;
+        $get_id = $this->db->get("customer_product")->row()->id;
         $get_id1 = 100+$get_id;
         $update = array(
             'username' => "cashonc" . $get_id1,
         );
         $this->db->where("id", $get_id);
-        $this->db->update("customer_info", $update);
+        $this->db->update("customer_product", $update);
         // $tr=array(
         //     'root' => $get_id
         // );
@@ -79,7 +79,7 @@ class UserDetail extends CI_Model
     public function fetch_data($id)
     {
         $this->db->where("id", $id);
-        $fetch = $this->db->get("customer_info");
+        $fetch = $this->db->get("customer_product");
         return $fetch->row();
     }
    /*  function joinerdrop()

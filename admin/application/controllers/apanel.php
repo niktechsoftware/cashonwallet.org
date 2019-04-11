@@ -8,6 +8,11 @@ function __construct()
 	}
 	
 	function isLogin(){
+	    	if($this->session->userdata("status")==0){
+		     $this->session->unset_userdata();
+	    $this->session->sess_destroy();
+	    redirect('login');
+		}
 		$is_login = $this->session->userdata('is_login');
 		$is_lock = $this->session->userdata('is_lock');
 		if(!$is_login){
@@ -17,6 +22,7 @@ function __construct()
 		elseif(!$is_lock){
 			redirect(base_url()."login/lockPage");
 		}
+	
 	}
 	
 	public function updatecoreCom(){
@@ -702,5 +708,18 @@ public function singlesms(){
 		$data['headerCss'] = "admin/headerCss/dailyExpenseCss";
 		$data['footerJs'] = "admin/footerJs/dailyExpenseJs";
 		$this->load->view("include/admin/mainContent",$data);
+	}
+	
+		function getEmployee(){
+	  $customer=  $this->input->post("customerid");
+	    $this->db->where("username",$customer);
+	   $getc =  $this->db->get("customer_info");
+	   if($getc->num_rows()>0){
+	       $fd  =  $getc->row();?>
+	       <font color="green"><?php echo "ID Found ".$fd->customer_name;?></font>
+	  <?php }else{?>
+	       <font color="red"><?php echo "Wrong Username ";?></font>
+	       
+	  <?php }
 	}
 }

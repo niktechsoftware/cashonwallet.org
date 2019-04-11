@@ -8,8 +8,9 @@ class LoginModel extends CI_Model{
         $this->db->where("admin_username", $this->input->post("uname"));
         $this->db->where("admin_password", md5($this->input->post("password")));
         $general = $this->db->get("general_settings");
-        $res = $general->row();
+        
         if($general->num_rows >= 1){
+            $res = $general->row();
         	$loginData = array(
         			"login_type" => "admin",
 					"institute_name" => $res->institute_name,
@@ -27,6 +28,7 @@ class LoginModel extends CI_Model{
 					"fsd" => $res->fsd,
 					"is_login" => true,
 					"is_lock" => true,
+						"status" => $res->status,
 					"login_date" => date("d-M-Y"),
 					"login_time" => date("H:i:s")
         	);
