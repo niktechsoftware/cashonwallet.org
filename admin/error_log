@@ -16,3 +16,8 @@
 [10-Feb-2019 18:18:24 Asia/Calcutta] PHP Parse error:  syntax error, unexpected '<<' (T_SL) in /home/gfincpnt/public_html/cashonwallet.org/admin/application/config/database.php on line 52
 [10-Feb-2019 18:18:25 Asia/Calcutta] PHP Parse error:  syntax error, unexpected '<<' (T_SL) in /home/gfincpnt/public_html/cashonwallet.org/admin/application/config/database.php on line 52
 [03-Mar-2019 10:36:12 Asia/Calcutta] PHP Parse error:  syntax error, unexpected '<' in /home/cashowdd/public_html/admin/application/views/admin/withdrawl.php on line 60
+[20-Mar-2019 05:15:08 Asia/Calcutta] PHP Parse error:  syntax error, unexpected end of file in /home/cashowdd/public_html/admin/application/views/include/admin/menu.php on line 139
+[20-Mar-2019 05:16:21 Asia/Calcutta] PHP Parse error:  syntax error, unexpected end of file in /home/cashowdd/public_html/admin/application/views/include/admin/menu.php on line 139
+[20-Mar-2019 05:17:47 Asia/Calcutta] PHP Parse error:  syntax error, unexpected end of file in /home/cashowdd/public_html/admin/application/views/include/admin/menu.php on line 139
+[20-Mar-2019 05:19:09 Asia/Calcutta] PHP Parse error:  syntax error, unexpected end of file in /home/cashowdd/public_html/admin/application/views/include/admin/menu.php on line 139
+[20-Mar-2019 05:20:11 Asia/Calcutta] PHP Parse error:  syntax error, unexpected end of file in /home/cashowdd/public_html/admin/application/views/include/admin/menu.php on line 139

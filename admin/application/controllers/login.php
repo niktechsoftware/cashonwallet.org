@@ -21,7 +21,7 @@ class Login extends CI_Controller{
 		if($query['is_login']){  //if user validation return true after validation
 			$this->session->set_userdata($query);
 			//echo $query['login_type'];
-			redirect(base_url()."apanel/index");
+			redirect(base_url()."ajax/index");
 		}
 		else{ // if user not validate the credential ....
 			redirect(base_url()."login/index/authFalse");

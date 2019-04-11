@@ -544,6 +544,15 @@ class CI_Cart {
 
 		$this->CI->session->unset_userdata('cart_contents');
 	}
+		
+	public function remove($rowid)
+	 {
+		// unset & save
+		unset($this->_cart_contents[$rowid]);
+		$this->_save_cart();
+		return TRUE;
+	 }
+	
 
 
 }

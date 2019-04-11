@@ -1,0 +1,4 @@
+[10-Apr-2019 03:45:14 Etc/GMT] PHP Fatal error:  Call to undefined method Shopping_cart_model::getRows() in /home/cashowdd/public_html/application/controllers/welcome.php on line 108
+[10-Apr-2019 03:45:53 Etc/GMT] PHP Fatal error:  Call to undefined method Shopping_cart_model::getRows() in /home/cashowdd/public_html/application/controllers/welcome.php on line 108
+[10-Apr-2019 03:46:07 Etc/GMT] PHP Fatal error:  Call to undefined method Shopping_cart_model::getRows() in /home/cashowdd/public_html/application/controllers/welcome.php on line 108
+[10-Apr-2019 03:53:02 Etc/GMT] PHP Fatal error:  Call to undefined method Shopping_cart_model::getRows() in /home/cashowdd/public_html/application/controllers/welcome.php on line 108
