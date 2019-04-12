@@ -54,9 +54,9 @@ $db['default']['hostname'] = 'localhost';
 // $db['default']['password'] = '';
 // $db['default']['database'] = 'cashon_wallet';
 
- $db['default']['username'] = 'cashowdd_wallet';
-$db['default']['password'] = 'Rahul!123singh';
-$db['default']['database'] = 'cashowdd_wallet';
+ $db['default']['username'] = 'root';
+$db['default']['password'] = '';
+$db['default']['database'] = 'cashon_wallet';
 
 
 

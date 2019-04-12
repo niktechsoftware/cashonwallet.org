@@ -1,4 +1,11 @@
-<?php if (validation_errors()) { ?>
+<?php 
+ $cid=$this->uri->segment(3);
+ if($cid){
+$this->db->where("id",$cid);
+$cname=$this->db->get("customer_info")->row()->username;
+}
+
+ if (validation_errors()) { ?>
 <div class="alert alert-warning">
     <?php echo validation_errors(); ?>
 </div>
@@ -192,28 +199,49 @@
                                         echo '<option value="' . $root['root'] . '">' . $root['root'] . '</option>';
                                     } ?>
                                 </select>--> 
-                                <input type="text" class="form-control" name="joinerid" id="joinerid" required ="required" >
+                                <input type="text" class="form-control" name="joinerid" id="joinerid" value="<?php echo $cname;?>" required ="required" >
                             </div>
                         </div>
                         
                         
                         <div class="form-row">
                            <div class="col-md-12">
-                              <div id="joiner" ></div>
+                            <?php 
+                            if($cname){ 
+                               ?> <div id="joiner" ></div>
                                <script>
+                               $(document).ready(function(){
+                                
+                                     var joinerid = $("#joinerid").val();
+                                                        //alert(joinerid);
+                                                        $.post("<?php echo site_url('welcome/getcname') ?>",{joinerid : joinerid},function(data){
+                                                            $("#joiner").html(data);
+                                                        });
+                                   $("#joiner").show();
+                                 });
+
+                                </script>
 
 
- $("#joinerid").keyup(function(){
-      $("#joiner").hide();
-     var joinerid = $("#joinerid").val();
-						//alert(joinerid);
-						$.post("<?php echo site_url('welcome/getcname') ?>",{joinerid : joinerid},function(data){
-							$("#joiner").html(data);
-						});
-   $("#joiner").show();
- });
+                           <?php  }
+                           else{
+                                 ?><div id="joiner" ></div>
+                               <script>
+                                 $("#joinerid").keyup(function(){
+                                      $("#joiner").hide();
+                                     var joinerid = $("#joinerid").val();
+                                                        //alert(joinerid);
+                                                        $.post("<?php echo site_url('welcome/getcname') ?>",{joinerid : joinerid},function(data){
+                                                            $("#joiner").html(data);
+                                                        });
+                                   $("#joiner").show();
+                                 });
 
-</script>
+                                </script>
+
+                           <?php }
+                                ?>
+                             
  <!--<button class="btn btn-solid" id="sendsms">
                             Create Account</button>
                          </div>-->
