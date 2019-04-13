@@ -1,9 +1,7 @@
 <?php 
  $cid=$this->uri->segment(3);
- if($cid){
-$this->db->where("id",$cid);
-$cname=$this->db->get("customer_info")->row()->username;
-}
+ //print_r($cid);
+
 
  if (validation_errors()) { ?>
 <div class="alert alert-warning">
@@ -191,6 +189,12 @@ $cname=$this->db->get("customer_info")->row()->username;
                                     }    
                                 </script>
                             </div> -->
+                         <?php  /* if($cid==null){echo "hhhhhhhhhhhhhhhhhh";}else{echo "p";}
+ if($cid){
+$this->db->where("id",$cid);
+$cname=$this->db->get("customer_info")->row()->username;
+
+}*/?>
                             <div class="col-md-6">
                                 <label for="joinerid">Joiner Id/Referal UserName</label>
                                 <!--<select class="form-control" name="joinerid" id="joinerid">
@@ -199,7 +203,16 @@ $cname=$this->db->get("customer_info")->row()->username;
                                         echo '<option value="' . $root['root'] . '">' . $root['root'] . '</option>';
                                     } ?>
                                 </select>--> 
-                                <input type="text" class="form-control" name="joinerid" id="joinerid" value="<?php echo $cname;?>" required ="required" >
+                                <input type="text" class="form-control" name="joinerid" id="joinerid" value="<?php 
+                                    if($cid==null){echo "";}else{ if($cid){
+                                        $this->db->where("id",$cid);
+                                        $cname=$this->db->get("customer_info")->row()->username;
+
+                                        }
+                                        echo $cname;}
+
+
+                               ?>" required ="required" >
                             </div>
                         </div>
                         
@@ -207,7 +220,10 @@ $cname=$this->db->get("customer_info")->row()->username;
                         <div class="form-row">
                            <div class="col-md-12">
                             <?php 
-                            if($cname){ 
+
+                            if($cid){ 
+                                 $this->db->where("id",$cid);
+                                        $cname=$this->db->get("customer_info")->row()->username;
                                ?> <div id="joiner" ></div>
                                <script>
                                $(document).ready(function(){
