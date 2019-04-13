@@ -58,7 +58,7 @@ $active_record = TRUE;
 
  $db['default']['username'] = 'root';
 $db['default']['password'] = '';
-$db['default']['database'] = 'cashonwallet';
+$db['default']['database'] = 'cashon_wallet';
 
 
 

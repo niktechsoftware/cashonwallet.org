@@ -7,3 +7,6 @@ application/cache/*
 application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
+admin/application/config/database.php
+application/config/database.php
+cashonSoft/application/config/database.php
