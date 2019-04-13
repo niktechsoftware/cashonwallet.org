@@ -23,7 +23,7 @@
 |
 */
 // $config['base_url'] = 'http://localhost/cashonwallet.org/';
-$config['base_url'] = 'http://cashonwallet.org';
+$config['base_url'] = 'http://localhost/cashonwallet.org/';
 
 
 /*
