@@ -450,7 +450,7 @@ public function update_account_table()
 			$daybook=array(
 				'cid'=>$cid,
 				'amount'=>1.00,
-				'debit_credit'=>0,
+				'debit_credit'=>1,
 				'remark'=>'kyc Charge',
 				'date_time'=>date('Y-m-d H:s:i'),
 				 'invoice_number'=>$ivc,
