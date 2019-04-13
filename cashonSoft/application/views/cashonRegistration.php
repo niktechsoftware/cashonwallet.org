@@ -1,4 +1,9 @@
-<?php if (validation_errors()) { ?>
+<?php 
+ $cid=$this->uri->segment(3);
+ //print_r($cid);
+
+
+ if (validation_errors()) { ?>
 <div class="alert alert-warning">
     <?php echo validation_errors(); ?>
 </div>
@@ -184,6 +189,12 @@
                                     }    
                                 </script>
                             </div> -->
+                         <?php  /* if($cid==null){echo "hhhhhhhhhhhhhhhhhh";}else{echo "p";}
+ if($cid){
+$this->db->where("id",$cid);
+$cname=$this->db->get("customer_info")->row()->username;
+
+}*/?>
                             <div class="col-md-6">
                                 <label for="joinerid">Joiner Id/Referal UserName</label>
                                 <!--<select class="form-control" name="joinerid" id="joinerid">
@@ -192,28 +203,61 @@
                                         echo '<option value="' . $root['root'] . '">' . $root['root'] . '</option>';
                                     } ?>
                                 </select>--> 
-                                <input type="text" class="form-control" name="joinerid" id="joinerid" required ="required" >
+                                <input type="text" class="form-control" name="joinerid" id="joinerid" value="<?php 
+                                    if($cid==null){echo "";}else{ if($cid){
+                                        $this->db->where("id",$cid);
+                                        $cname=$this->db->get("customer_info")->row()->username;
+
+                                        }
+                                        echo $cname;}
+
+
+                               ?>" required ="required" >
                             </div>
                         </div>
                         
                         
                         <div class="form-row">
                            <div class="col-md-12">
-                              <div id="joiner" ></div>
+                            <?php 
+
+                            if($cid){ 
+                                 $this->db->where("id",$cid);
+                                        $cname=$this->db->get("customer_info")->row()->username;
+                               ?> <div id="joiner" ></div>
                                <script>
+                               $(document).ready(function(){
+                                
+                                     var joinerid = $("#joinerid").val();
+                                                        //alert(joinerid);
+                                                        $.post("<?php echo site_url('welcome/getcname') ?>",{joinerid : joinerid},function(data){
+                                                            $("#joiner").html(data);
+                                                        });
+                                   $("#joiner").show();
+                                 });
+
+                                </script>
 
 
- $("#joinerid").keyup(function(){
-      $("#joiner").hide();
-     var joinerid = $("#joinerid").val();
-						//alert(joinerid);
-						$.post("<?php echo site_url('welcome/getcname') ?>",{joinerid : joinerid},function(data){
-							$("#joiner").html(data);
-						});
-   $("#joiner").show();
- });
+                           <?php  }
+                           else{
+                                 ?><div id="joiner" ></div>
+                               <script>
+                                 $("#joinerid").keyup(function(){
+                                      $("#joiner").hide();
+                                     var joinerid = $("#joinerid").val();
+                                                        //alert(joinerid);
+                                                        $.post("<?php echo site_url('welcome/getcname') ?>",{joinerid : joinerid},function(data){
+                                                            $("#joiner").html(data);
+                                                        });
+                                   $("#joiner").show();
+                                 });
 
-</script>
+                                </script>
+
+                           <?php }
+                                ?>
+                             
  <!--<button class="btn btn-solid" id="sendsms">
                             Create Account</button>
                          </div>-->

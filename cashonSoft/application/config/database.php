@@ -49,6 +49,7 @@ $active_group = 'default';
 $active_record = TRUE;
  $db['default']['hostname'] = 'localhost';
 
+
 // $db['default']['username'] = 'cashowdd_wallet';
 // $db['default']['password'] = 'Rahul!123singh';
 // $db['default']['database'] = 'cashowdd_wallet';

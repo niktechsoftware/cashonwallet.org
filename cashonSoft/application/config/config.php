@@ -25,9 +25,8 @@
 
 
 
-// $config['base_url'] = 'http://cashonwallet.org/cashonSoft/';
- $config['base_url'] = 'http://localhost/cashonwallet.org/cashonSoft';
-
+$config['base_url'] = 'http://localhost/cashonwallet.org/cashonSoft/';
+// $config['base_url'] = 'http://localhost/cashonwallet.org/cashonSoft';
 
 
 
