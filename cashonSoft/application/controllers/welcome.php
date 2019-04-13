@@ -264,6 +264,7 @@ class Welcome extends CI_Controller
         $data['mainPage'] = 'Login & Registration';
         $data['subPage'] = 'Login & Registration';
         $data['title'] = 'Login & Registration';
+
         $data['headerCss'] = 'headerCss/loginCss';
         $data['footerJs'] = 'footerJs/loginJs';
         $data['mainContent'] = 'forgot_password';
@@ -446,6 +447,12 @@ class Welcome extends CI_Controller
 
         $this->db->select("mobilenumber");
         $this->db->where("username", $username);
+       // $this->db->where("mobilenumber", $mno);
+        $mobileno = $this->db->get("customer_info")->row()->mobilenumber;
+        if($mobileno==$mno)
+        {
+         $this->db->select("mobilenumber");
+        $this->db->where("username", $username);
         $this->db->where("mobilenumber", $mno);
         $mobileno = $this->db->get("customer_info")->row()->mobilenumber;
         $otp = rand(100000, 999999);
@@ -457,11 +464,35 @@ class Welcome extends CI_Controller
        $this->db->insert('forgot_otp',$data);
         $msg = $otp." is your OTP(One Time Password)";
         $this->load->helper('sms');
-        sms($mobileno, $msg);
-       // $this->db->select('otp');
-       // $this->db->from('forgot_otp');
-       // $this->db->where('username',$username);
-      // $otp= $this->db->get()->row()->otp;
+        sms($mobileno, $msg);?>
+         <div class="alert alert-success">
+                                <button data-dismiss="alert" class="close">
+                                    &times;
+                                </button>
+                                <?php 
+                                       echo "Otp Send Successfully";?>
+                                </div>
+                                <?php
+          }
+    else
+        { ?>
+
+         <div class="alert alert-success">
+                                <button data-dismiss="alert" class="close">
+                                    &times;
+                                </button>
+                                <?php 
+                                       echo "Mobile Number Not Match";?>
+                                        <a href="<?php echo base_url();?>index.php/welcome/forgotpassword" class="btn btn-red">
+                                         <i class="fa fa-arrow-circle-right"></i>Re-Enter Mobile Number</a>
+                                </div> 
+                                <script type="text/javascript">
+                                document.getElementById("textotp").disabled = true;
+                                </script>            
+                            <?php
+                  }
+
+
     }
     
     public function match_password()
@@ -471,20 +502,109 @@ class Welcome extends CI_Controller
         $this->db->from('forgot_otp');
         $this->db->get();
     }
+     public function newpasswordsave()
+    {
+        $pass=$this->input->post('password');
+         $cnpass=$this->input->post('cfmPassword');
+          $uname=$this->input->post('name');
+           $mobileno=$this->input->post('mno');
+         $data=array(
+            'password' => $pass 
+        );
+         if($pass==$cnpass)
+         {
+          $this->db->where('username',$uname);
+          $update=$this->db->update('customer_info',$data);
+          if($update)
+          {
+            $msg ="Dear Customer".$uname."Your login Password is:". $cnpass. "". "Please Login With New Password";
+            $this->load->helper('sms');
+            sms($mobileno, $msg);
+            ?>
+               <div class="alert alert-success">
+                                <button data-dismiss="alert" class="close">
+                                    &times;
+                                </button>
+                                <?php 
+                                       echo "Password Update Successfully";?>
+                                        <a href="<?php echo base_url();?>index.php/welcome/login" class="btn btn-red">
+                                         <i class="fa fa-arrow-circle-right"></i>Go For Login</a>
+                                </div>
+
+                          <?php
+                        
+             }
+          else{ echo "Somthing Wrong:Please try After Sometime";}                           
+                          
+      }
+          else
+          { 
+             ?>
+                            <div class="alert alert-danger">
+                        
+                                <button data-dismiss="alert" class="close">
+                                    &times;
+                                </button><?php 
+                           echo "Password Not Match";?>
+                            </div><?php 
+
+          }
+         
+}
+        
     
     public function matchotp(){
         $username = $this->input->post("name");
-        $otp = $this->input->post("textotp");
-        $this->db->where("otp",$otp);
+         $otpbox = $this->input->post("textotp");
+
+        $this->db->where("otp",$otpbox);
         $this->db->where("username",$username);
         $getrow = $this->db->get("forgot_otp");
         if($getrow->num_rows()>0){
-            echo "match";
-        }
-        else{
-            echo "Notmatch";
-        }
-    }
+        foreach ($getrow->result() as $data1)
+        {
+          $otp1=$data1->otp;
+         if($otp1==$otpbox)
+                 {
+                    ?><br><br>
+                     <div class="alert alert-success">
+                                <button data-dismiss="alert" class="close">
+                                    &times;
+                                </button>
+                                <?php 
+                                       echo "Match Otp";?>
+                                </div>
+                <script>
+                  $("#button").hide();
+                  $("#newpassword").show();
+                   $("#forgate").hide();
+             </script><?php
+                     return true;
+                 }
+             }
+              }
+                 else
+                 {   ?>
+                            <div class="alert alert-danger">
+                        
+                                <button data-dismiss="alert" class="close">
+                                    &times;
+                                </button><?php 
+                           echo "Otp Not Match";?>
+                            </div>
+             <script>
+                  $("#button").hide();
+                  $("#newpassword").hide();
+                    $("#forgate").show();
+             </script><?php
+             return false;
+            }
+   
+}
+
+
+
+
      
     public function product_show()
     {

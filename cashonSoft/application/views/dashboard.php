@@ -6,6 +6,8 @@
                             
                             $this->db->where("id",$this->session->userdata("customer_id"));
                             $data= $this->db->get("customer_info")->row();
+                           $cid= $this->session->userdata("customer_id");
+
                             ?>
 
             <div class="col-lg-9">
@@ -15,6 +17,9 @@
                             <div class="col-8 page-title">
                                 <!--<div style="font-size:35px;"><?php echo $this->session->userdata("name"); ?>'s <h2 class="btn bg-danger text-white">DashBoard</h2> </div>-->
                                  <h6 class="btn bg-danger text-white">DASHBOARD</h6>
+                            
+                             <a href="<?php echo base_url();?>index.php/welcome/registration/<?php echo $cid ?>">CashonWallet/CashonSoft/index.php/welcome/Registration Page </a>
+
                             </div>
                             <?php $this->load->view("mpindrop");?>
                         </div>

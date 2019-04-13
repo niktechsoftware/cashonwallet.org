@@ -30,7 +30,6 @@ $config['base_url'] = 'http://localhost/cashonwallet.org/cashonSoft/';
 
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Index File
