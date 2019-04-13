@@ -120,7 +120,7 @@
                                     </tr>
                                     <tr>
                                         <th class="a">Bank Passbook Photo</th>
-                                        <td><img src="<?php echo base_url(); ?>admin/assets/kycimages/<?php echo $data->bank_passbook_photo;?>" width="100" height="100"></td>
+                                        <td><img src="http://localhost/cashonwallet.org/admin/assets/kycimages/<?php echo $data->bank_passbook_photo;?>" width="100" height="100"></td>
                                     </tr>
                                     <tr>
                                         <th class="a">Adhaar Number</th>
@@ -128,11 +128,11 @@
                                     </tr>
                                     <tr>
                                         <th class="a">Adhaar Front Photo</th>
-                                        <td><img src="<?php echo base_url(); ?>admin/assets/kycimages/<?php echo $data->adhaar_front_photo;?>" width="100" height="100"></td>
+                                        <td><img src="http://localhost/cashonwallet.org/admin/assets/kycimages/<?php echo $data->adhaar_front_photo;?>" width="100" height="100"></td>
                                     </tr>
                                     <tr>
                                         <th class="a">Adhaar Back Photo</th>
-                                        <td><img src="<?php echo base_url(); ?>admin/assets/kycimages/<?php echo $data->adhaar_back_photo;?>" width="100" height="100"></td>
+                                        <td><img src="http://localhost/cashonwallet.org/admin/assets/kycimages/<?php echo $data->adhaar_back_photo;?>" width="100" height="100"></td>
                                     </tr>
                                 </table></div>
 								 <h6 class="btn btn-primary" data-toggle="modal"

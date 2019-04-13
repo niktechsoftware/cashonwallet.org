@@ -124,7 +124,15 @@ public function generate_mpin()
 
 	            $this->db->insert("inner_daybook",$admin);
 	             $insert = $this->db->insert('mpin', $data2);
-	           }
+			   }
+			   $cid=$this->session->userdata('customer_id');
+			   $this->load->helper('sms');
+
+			   $this->db->where("id",$cid);
+			   $cinfo = $this->db->get("customer_info")->row();
+				//sms($contact, $msg);
+				$msg = "Dear " . $cinfo->customer_name." You have Generate ".$count." MPIN" ;
+				sms($cinfo->mobilenumber, $msg);
 	       }
 	       else{
 	            if(($mtype==2) && ($data1->amount+1 >=$ddamount)){
@@ -340,7 +348,23 @@ function account_info()
 
 public function update_account_table()
 	{
-		$this->session->userdata('customer_id');
+		$cid=$this->session->userdata('customer_id');
+		$this->db->where('cid',$cid);
+		//$this->db->where('amount',1.00);
+		$kycamount=$this->db->get('kyc');
+		if($kycamount->num_rows()>0)
+		{
+			?><script>alert('Your Bank Profile up to date')</script><?php 
+			redirect("dashboard/account_info", 'refresh');
+	}else{
+		$this->db->where('customer_id',$cid);
+		$this->db->where('status',1);
+		$cinfo=$this->db->get('daily_base_income');
+		if($cinfo->num_rows()>0){
+			$amount=$cinfo->row()->amount;
+		//$this->db->where('amount >=',1.00);
+		if($amount>=1.00){
+			?><script>confirm('You can update your bank profile only one time.So update your bank properly')</script><?php
 		$photo_name1 = time().trim($_FILES['passbookphoto']['name']);
 		$photo_name2 = time().trim($_FILES['adhaarfrontphoto']['name']);
 		$photo_name3 = time().trim($_FILES['adhaarbackphoto']['name']);
@@ -358,8 +382,10 @@ public function update_account_table()
 
 	    );
 		$this->load->library('upload');
-		$image_path = realpath(APPPATH . '../admin/assets/kycimages');
+		$image_path = realpath(APPPATH . '../../admin/assets/kycimages');
 		$config['upload_path'] = $image_path;
+		// print_r($image_path);
+		// exit;
 		$config['allowed_types'] = 'gif|jpg|jpeg|png';
 		$config['max_size'] = '1048';
 		$config['file_name'] = $photo_name1;
@@ -373,7 +399,7 @@ public function update_account_table()
 		}
 		
 		$this->load->library('upload');
-		$image_path = realpath(APPPATH . '../admin/assets/kycimages');
+		$image_path = realpath(APPPATH . '../../admin/assets/kycimages');
 		$config['upload_path'] = $image_path;
 		$config['allowed_types'] = 'gif|jpg|jpeg|png';
 		$config['max_size'] = '1048';
@@ -388,7 +414,7 @@ public function update_account_table()
 		}
 		
 		$this->load->library('upload');
-		$image_path = realpath(APPPATH . '../admin/assets/kycimages');
+		$image_path = realpath(APPPATH . '../../admin/assets/kycimages');
 		$config['upload_path'] = $image_path;
 		$config['allowed_types'] = 'gif|jpg|jpeg|png';
 		$config['max_size'] = '1048';
@@ -396,20 +422,56 @@ public function update_account_table()
 		if (!empty($_FILES['adhaarbackphoto']['name'])) {
             $this->upload->initialize($config);
 			$this->upload->do_upload('adhaarbackphoto');
-		   
+
 		}
 		else{
             echo "Somthing going wrong. Please Contact Site administrator";
 		}
 	    $this->load->model('userdetail');
 	   $data1= $this->userdetail->update_customer_table($data);
-	    If($data1)
+	  
+	    if($data1)
 	    {
-			
-	        redirect("dashboard/account_info", 'refresh');
+		    $camount=array(
+				'amount'=>$amount-1.00,
+				'date'=>date('Y-m-d H:i:s')
+			);  	
+			$this->db->where('customer_id',$cid);
+	     	$this->db->where('status',1);
+			$this->db->update('daily_base_income',$camount);
+			$kyccharge=array(
+				'cid'=>$cid,
+				'amount'=>1.00,
+			);
+			$rid  = $this->db->count_all_results('inner_daybook');
+			$rid =$rid+1;
+			$ivc = "CashonI".$rid;
+			$this->db->insert('kyc',$kyccharge);
+			$daybook=array(
+				'cid'=>$cid,
+				'amount'=>1.00,
+				'debit_credit'=>0,
+				'remark'=>'kyc Charge',
+				'date_time'=>date('Y-m-d H:s:i'),
+				 'invoice_number'=>$ivc,
+				 'plan_number'=>0
+			);
+			$this->db->insert("inner_daybook",$daybook);
+			?><script>alert('Your bank profile updated successfully')</script><?php
+	       redirect("dashboard/account_info", 'refresh');
 		}
-		
+	}else{
+		?><script>alert('You can not update your account profile.You dont have Balance')</script>
+		<?php
+		 redirect("dashboard/account_info", 'refresh');
 	}
+}else{
+	?><script>alert('You can not update your account profile. You are not a active customer')</script><?php 
+	redirect("dashboard/account_info", 'refresh');
+}
+
+	}
+}
 	
 	function add()
 	{
